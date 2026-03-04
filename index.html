@@ -731,21 +731,155 @@
     .footer-credit strong { color: var(--sage-light); font-weight: 600; letter-spacing: .06em; }
 
     /* ── RESPONSIVE ── */
+    /* ── TABLET (≤960px) ── */
     @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
       nav.stuck { padding: .7rem 1.5rem; }
       .nav-links { display: none; }
+
+      section { padding: 4rem 1.5rem; }
+
+      /* grids → single column */
       .overview-grid, .people-cols, .culture-layout,
-      .history-layout, .reach-layout { grid-template-columns: 1fr; }
-      .wards-grid, .gov-grid { grid-template-columns: repeat(2,1fr); }
-      .economy-grid { grid-template-columns: 1fr; }
-      .eco-wide { grid-column: span 1; }
+      .history-layout, .reach-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .wards-grid { grid-template-columns: repeat(3, 1fr); }
+      .gov-grid { grid-template-columns: repeat(2, 1fr); }
+      .economy-grid { grid-template-columns: 1fr 1fr; }
+      .eco-wide { grid-column: span 2; }
       .history-sidebar { position: static; }
+
+      /* map art */
+      .map-art { aspect-ratio: auto; padding: 2rem 1.5rem; }
+      .ward-grid { grid-template-columns: repeat(5, 1fr); }
+
+      /* culture */
+      .culture-layout { grid-template-columns: 1fr; }
+      .gaura-card { padding: 2rem 1.5rem; }
+
+      /* reach */
+      .location-visual { min-height: auto; padding: 2rem 1.5rem; }
     }
-    @media (max-width: 580px) {
-      .wards-grid { grid-template-columns: repeat(2,1fr); }
-      .gov-grid { grid-template-columns: 1fr; }
-      .stat-row { flex-wrap: wrap; }
+
+    /* ── MOBILE (≤640px) ── */
+    @media (max-width: 640px) {
+      section { padding: 3.5rem 1.2rem; }
+
+      /* NAV */
+      nav { padding: .9rem 1.2rem; }
+      nav.stuck { padding: .6rem 1.2rem; }
+      .nav-brand { font-size: 1.1rem; }
+      .lang-switch { padding: .3rem .7rem; font-size: .65rem; }
+      .lang-switch .lang-flag { font-size: .8rem; }
+
+      /* HERO */
+      .hero-content { padding: 0 1rem; }
+      .hero-eyebrow { font-size: 1rem; margin-bottom: .5rem; }
+      .hero-title { font-size: clamp(2.8rem, 14vw, 5rem); line-height: 1; }
+      .hero-title em { font-size: .5em; }
+      .hero-meta { gap: .6rem; margin-top: 1.5rem; flex-wrap: wrap; justify-content: center; }
+      .hero-pill { font-size: .68rem; padding: .35rem 1rem; letter-spacing: .08em; }
+      body.nepali-mode .hero-title { font-size: clamp(2rem, 11vw, 3.5rem); line-height: 1.25; }
+
+      /* TICKER */
+      .ticker-track .item { font-size: .65rem; padding: 0 1.5rem; }
+
+      /* SECTION LABELS & HEADINGS */
+      .label { font-size: .65rem; }
+      h2.headline { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+
+      /* OVERVIEW */
+      .overview-grid { gap: 2rem; }
+      .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .stat-num { font-size: 2rem; }
+      .map-art { padding: 1.5rem 1rem; }
+      .ward-grid { grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+      .ward-pill { font-size: .6rem; padding: .35rem .2rem; }
+      .coord-badge { font-size: .65rem; }
+
+      /* WARDS */
+      .wards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .ward-card { padding: 1.2rem 1rem; }
+      .ward-number { font-size: 1.8rem; }
+      .ward-name { font-size: 1rem; }
+      .ward-old { font-size: .72rem; }
+
+      /* PEOPLE */
+      .people-cols { gap: 2rem; }
+      .data-bars { margin-top: .8rem; }
+      .bar-label { font-size: .75rem; }
+      .caste-item { padding: .7rem 1rem; font-size: .85rem; }
+      .caste-item .caste-num { font-size: 1rem; }
+
+      /* CULTURE */
+      .gaura-card { padding: 1.5rem 1.2rem; }
+      .gaura-card h3 { font-size: 1.4rem; }
+      .gaura-step { grid-template-columns: 80px 1fr; gap: .7rem; }
+      .g-day { font-size: .62rem; }
+      .g-desc { font-size: .82rem; }
+      .culture-cards { gap: .9rem; }
+      .c-card { padding: 1.3rem; }
+      .c-card h4 { font-size: 1.1rem; }
+      .c-card p { font-size: .83rem; }
+
+      /* ECONOMY */
+      .economy-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .eco-wide { grid-column: span 1; padding: 2rem 1.5rem; }
+      .eco-wide h3 { font-size: 1.4rem; }
+      .eco-card { padding: 1.5rem; }
+      .eco-card h3 { font-size: 1.1rem; }
+
+      /* HISTORY TIMELINE */
+      .history-layout { gap: 2rem; }
+      .tl-item { grid-template-columns: 60px 20px 1fr; gap: 0 .8rem; }
+      .tl-yr { font-size: .82rem; padding-top: .5rem; }
+      .tl-body { padding: 1.1rem 1.2rem; }
+      .tl-body h3 { font-size: 1.05rem; }
+      .tl-body p { font-size: .83rem; }
+      .tl-connector { padding-top: .5rem; }
+      .tl-dot { width: 13px; height: 13px; }
+      .tl-item:not(:last-child) .tl-connector::after { top: 24px; }
+
+      /* GOVERNANCE */
+      .gov-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .gov-card { padding: 1.5rem; }
+      .gov-card h3 { font-size: 1.05rem; }
+      .gov-card ul { font-size: .83rem; line-height: 1.9; }
+      .gov-card.accent { padding: 1.5rem; }
+
+      /* REACH */
+      .reach-layout { gap: 2rem; }
+      .route-head { padding: 1rem 1.4rem; }
+      .route-head h4 { font-size: 1.05rem; }
+      .route-body2 { padding: 1.2rem 1.4rem; }
+      .r-t { font-size: .83rem; }
+      .location-visual { padding: 1.5rem 1.2rem; border-radius: 8px; }
+      .loc-title { font-size: 1.5rem; }
+      .loc-sub { font-size: .82rem; }
+      .loc-info { padding: 1rem 1.2rem; }
+      .loc-info p { font-size: .8rem; line-height: 1.85; }
+
+      /* FOOTER */
+      .footer-logo { font-size: 1.8rem; }
+      .footer-nep { font-size: 1rem; }
+      .footer-sub { font-size: .75rem; }
+      .footer-links { gap: 1rem; }
+      .footer-links a { font-size: .68rem; }
+      .footer-copy { font-size: .7rem; }
+      .footer-credit { font-size: .75rem; }
+    }
+
+    /* ── SMALL MOBILE (≤400px) ── */
+    @media (max-width: 400px) {
+      section { padding: 3rem 1rem; }
+      .hero-title { font-size: clamp(2.4rem, 16vw, 3.8rem); }
+      body.nepali-mode .hero-title { font-size: clamp(1.8rem, 12vw, 3rem); }
+      .wards-grid { grid-template-columns: 1fr 1fr; }
+      .ward-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .tl-item { grid-template-columns: 52px 18px 1fr; gap: 0 .6rem; }
+      .tl-yr { font-size: .75rem; }
+      .gaura-step { grid-template-columns: 72px 1fr; }
+      .hero-pill { font-size: .62rem; padding: .3rem .8rem; }
     }
   </style>
 </head>
